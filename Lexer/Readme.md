@@ -36,6 +36,34 @@ After analyzing the input, the lexer generates:
    - Logs any errors if applicable
 5. Repeats until EOF
 
+### 🔧 Transition Table Workflow
+
+The lexer is driven by a **DFA (Deterministic Finite Automaton)** defined externally in a file named `transition_table.txt`. This table defines how the lexer transitions between states based on character classes (e.g., letters, digits, operators).
+
+#### 🛠️ Creation of the Transition Table
+- The transition table is defined as a plain text file, where:
+  - **Rows** represent current states
+  - **Columns** represent input character classes
+  - **Cell values** represent the next state to transition to
+- It allows adding new token rules (e.g., Urdu keywords, operators) **without changing C++ code** — just by updating the table.
+
+#### 📥 Importing the Transition Table
+- At runtime, `main.cpp` reads `transition_table.txt` and loads it into a **2D dynamic array** (e.g., `int** transitionTable`).
+- It also loads a secondary `advance_table.txt` that tells the lexer **whether to move the pointer forward** on each transition.
+
+#### ⚙️ Dynamic Lexer Behavior
+- When the lexer runs, it:
+  1. Identifies the **input class** of the current character (e.g., digit, letter, symbol).
+  2. Uses the current `state` and character class to **index the transition table** and find the next state.
+  3. Checks `advanceTable[state][charClass]` to decide if it should advance the input buffer pointer.
+  4. When it hits an **accepting/final state**, it:
+     - Captures the token
+     - Adds it to the appropriate table (symbol, literal)
+     - Resets the state and continues scanning
+
+This table-driven design makes the lexer **fully modular**, easy to update, and language-independent — perfect for a compiler like `Syntax-e-Urdu`.
+
+
 ## 📁 Files in This Module
 
 ```text
