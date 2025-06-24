@@ -36,11 +36,10 @@ relop → == | > | < | >= | <=
 
 ## 📁 Files in This Module
 
-parser/
-├── parser.cpp         # Parser implementation
-├── grammar.txt        # CFG rules (read by the parser)
-├── tokens.txt         # Token stream from the lexer
-├── parse_log.txt      # Output: parse tree steps and errors
+1. parser.cpp          
+2. grammar.txt          
+3. tokens.txt          
+4. parse_log.txt        
 
 
 ## 📌 Notes
