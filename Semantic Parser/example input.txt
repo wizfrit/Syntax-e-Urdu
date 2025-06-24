@@ -1,0 +1,11 @@
+while (x < 5) {
+    x := x + 1 ::
+    Agar (y == 10) { 
+        z := y + 5 ::
+    } Wagarna {
+        while (y <= 10) {
+            z := y - 5 ::
+        }
+    }
+    x := x + 1 + 2 * (x + y) ::
+}

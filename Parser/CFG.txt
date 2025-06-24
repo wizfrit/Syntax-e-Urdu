@@ -1,0 +1,32 @@
+Function   → Type identifier (ArgList) CompStmt
+ArgList    → Arg A'
+A'         → , Arg A' | λ
+Arg        → Type identifier
+Declaration→ Type idenList ::
+Type       → Adadi | Ashriya | Harf | Matn | Mantiqi
+idenList  → identifier B'
+B'         → , idenList | λ
+Stmt       → ForStmt | WhileStmt | Expr:: | IfStmt | CompStmt |  Declaration | ::
+
+ForStmt    → for (Expr :: OptExpr :: OptExpr) Stmt
+OptExpr    → Expr | λ
+WhileStmt  → while (Expr) Stmt
+IfStmt     → Agar (Expr) Stmt ElsePart
+ElsePart   → Wagarna Stmt | λ
+CompStmt   → { StmtList }
+StmtList   → C'
+C'         → Stmt C' | λ
+Expr   → identifier K' | (Expr) | I' J' D' | number I' J' D'
+K'     → := Expr | I' J' D'
+
+D'       → Compare Mag D' | λ
+Compare  → == | < E' | > F' | !=
+E'       → > | = | λ
+F'       → = | λ
+Mag      → (Expr) I' J' | identifier I' J' | number I' J'
+J'       → G' J' | λ
+G'       → + Term | - Term
+Term     → (Expr) I' | identifier I' | number I'
+I'       → H' J' | λ
+H'       → * Factor | / Factor
+Factor   → (Expr) | identifier | number

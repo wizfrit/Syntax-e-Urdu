@@ -1,0 +1,10 @@
+asm1 output_ outputa input-> output_ 
+//hfjdfhjfherjrf
+/*jfjdhf
+fjhgj
+fjri
+rtjreij*/
+1234
++0.987
+-9.0e89 == *
+"Haallllooooooo!" num1 

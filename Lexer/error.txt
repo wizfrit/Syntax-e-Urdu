@@ -1,0 +1,3 @@
+asm1
+outputa
+num1
